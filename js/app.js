@@ -24,7 +24,8 @@ class Presupuesto {
     }
 
     nuevoGasto(gasto) {
-        this.gastos = [...this.gasto, gasto]
+        this.gastos = [...this.gastos, gasto];
+        console.log(this.gastos);
     }
 }
 
@@ -43,10 +44,10 @@ class UI {
         const divMensaje = document.createElement('div');
         divMensaje.classList.add('text-center', 'alert')
 
-        if(tipo === "error"){
+        if(tipo === 'error'){
             divMensaje.classList.add('alert-danger');
         } else {
-            divMensaje.classList.add('alert-succes');
+            divMensaje.classList.add('alert-success');
         }
 
         // Mensaj de error
@@ -59,7 +60,7 @@ class UI {
         //Quitar del HTML
         setTimeout(() => {
             divMensaje.remove();            
-        }, 2500);
+        }, 3000);
     }
 }
 
@@ -107,7 +108,7 @@ function agregarGasto(e) {
     const gasto = { nombre, cantidad, id: Date.now() }
 
     // Añade un nuevo gasto
-    presupuesto.nuevogasto( gasto );
+    presupuesto.nuevoGasto( gasto );
 
     // Mensaje de todo bien
     ui.imprimirAlerta('Gasto agregado correctamente');
